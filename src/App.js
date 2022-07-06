@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { Outlet, Link } from 'react-router-dom'
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <div className="App-marka">
+            Kişisel Websitem<br />
+            <small>kararlı adımlarla</small>
+        </div>
+        <nav className="nav-links">
+          <Link to="/">Anasayfa</Link>
+          <Link to="/hakkinda">Hakkında</Link>
+          <Link to="/iletisim">Iletisim</Link>
+        </nav>
       </header>
+
+      <main>
+        <Outlet />
+      </main>
+
+      <footer>
+        Her hakkı saklıdır &copy; 
+        {new Date().getFullYear()}
+      </footer>
     </div>
   );
 }
